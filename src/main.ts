@@ -5,6 +5,7 @@ import {
 	Modal,
 	Notice,
 	Plugin,
+	Menu,
 } from 'obsidian';
 import {
 	DEFAULT_SETTINGS,
@@ -83,6 +84,30 @@ export default class MyPlugin extends Plugin {
 		// When registering intervals, this function will automatically clear the interval when the plugin is disabled.
 		this.registerInterval(
 			window.setInterval(() => console.log('setInterval'), 5 * 60 * 1000),
+		);
+
+		this.registerEvent(
+			this.app.workspace.on(
+				'editor-menu',
+				(menu: Menu, editor: Editor) => {
+					menu.addItem((item) => {
+						item.setSection('selection.insert.marks')
+							.setIcon('arrow-left-from-line')
+							.setTitle('Right-to-Left Mark')
+							.onClick(() => {
+								editor.replaceSelection('\u200F');
+							});
+					});
+					menu.addItem((item) => {
+						item.setSection('selection.insert.marks')
+							.setIcon('arrow-right-from-line')
+							.setTitle('Left-to-Right Mark')
+							.onClick(() => {
+								editor.replaceSelection('\u200E');
+							});
+					});
+				},
+			),
 		);
 	}
 
