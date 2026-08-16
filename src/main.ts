@@ -41,7 +41,7 @@ export default class MyPlugin extends Plugin {
 	private registerCommands() {
 		this.addCommand({
 			id: 'insert-right-to-left-mark',
-			name: 'Insert Right-to-Left Mark at line start',
+			name: `Insert ${MARK_NAME_TO_LABEL['RLM']}`,
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(MARK.RLM);
 			},
@@ -49,7 +49,7 @@ export default class MyPlugin extends Plugin {
 
 		this.addCommand({
 			id: 'insert-left-to-right-mark',
-			name: 'Insert Left-to-Right Mark at line start',
+			name: `Insert ${MARK_NAME_TO_LABEL['LRM']}`,
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(MARK.LRM);
 			},
