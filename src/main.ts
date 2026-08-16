@@ -13,16 +13,14 @@ export default class MyPlugin extends Plugin {
 				'editor-menu',
 				(menu: Menu, editor: Editor) => {
 					menu.addItem((item) => {
-						item.setSection('selection.insert.marks')
-							.setIcon('arrow-left-from-line')
+						item.setIcon('arrow-left-from-line')
 							.setTitle('Right-to-Left Mark')
 							.onClick(() => {
 								editor.replaceSelection('\u200F');
 							});
 					});
 					menu.addItem((item) => {
-						item.setSection('selection.insert.marks')
-							.setIcon('arrow-right-from-line')
+						item.setIcon('arrow-right-from-line')
 							.setTitle('Left-to-Right Mark')
 							.onClick(() => {
 								editor.replaceSelection('\u200E');
