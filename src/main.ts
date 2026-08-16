@@ -26,6 +26,7 @@ export default class MyPlugin extends Plugin {
 								editor.replaceSelection(MARK.RLM);
 							});
 					});
+
 					menu.addItem((item) => {
 						item.setIcon('arrow-right-from-line')
 							.setTitle(MARK_NAME_TO_LABEL['LRM'])
@@ -42,6 +43,7 @@ export default class MyPlugin extends Plugin {
 		this.addCommand({
 			id: 'insert-right-to-left-mark',
 			name: `Insert ${MARK_NAME_TO_LABEL['RLM']}`,
+			icon: 'arrow-left-from-line',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(MARK.RLM);
 			},
@@ -50,6 +52,7 @@ export default class MyPlugin extends Plugin {
 		this.addCommand({
 			id: 'insert-left-to-right-mark',
 			name: `Insert ${MARK_NAME_TO_LABEL['LRM']}`,
+			icon: 'arrow-right-from-line',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(MARK.LRM);
 			},
