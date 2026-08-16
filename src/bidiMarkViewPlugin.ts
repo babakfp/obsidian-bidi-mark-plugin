@@ -14,32 +14,16 @@ const MARKS = {
 	RLM: '\u200F',
 	LRM: '\u200E',
 };
-
-const MARK_ARIA_LABELS: Record<string, string> = {
-	'\u200F': 'Right-to-Left Mark',
-	'\u200E': 'Left-to-Right Mark',
+const MARK_NAMES = {
+	[MARKS.RLM]: 'RLM',
+	[MARKS.LRM]: 'LRM',
 };
-
-const MARKS_BY_CODE: Record<string, string> = {
-	'\u200F': 'RLM',
-	'\u200E': 'LRM',
-};
-
-const MARK_SHAPES: Record<string, string> = {
-	// '\u200F': '⇥',
-	// '\u200E': '⇤',
-	'\u200F': '↤',
-	'\u200E': '↦',
-};
-
-const MARK_LABELS: Record<string, string> = {
-	'\u200F': 'RLM',
-	'\u200E': 'LRM',
+const MARK_LABELS = {
+	[MARKS.RLM]: 'Right-to-Left Mark',
+	[MARKS.LRM]: 'Left-to-Right Mark',
 };
 
 class BidiMarkWidget extends WidgetType {
-	markType: 'lines' | 'shape' | 'label' | 'unicode' | 'custom' = 'lines';
-
 	constructor(private char: string) {
 		super();
 	}
@@ -49,30 +33,12 @@ class BidiMarkWidget extends WidgetType {
 	}
 
 	toDOM() {
+		const name = MARK_NAMES[this.char]!;
+		const label = MARK_LABELS[this.char]!;
 		const span = document.createElement('span');
-		span.classList.add(
-			'bidi-mark-widget',
-			`bidi-mark-widget--${MARKS_BY_CODE[this.char]}`,
-		);
-		if (this.markType === 'lines') {
-			span.classList.add('bidi-mark-widget--lines');
-			span.textContent = ' ';
-		}
-		if (this.markType === 'shape') {
-			span.classList.add('bidi-mark-widget--shape');
-			span.textContent = MARK_SHAPES[this.char]!;
-		}
-		if (this.markType === 'label') {
-			span.textContent = `[${MARK_LABELS[this.char]!}]`;
-		}
-		if (this.markType === 'unicode') {
-			span.textContent = `[${
-				MARK_LABELS[this.char] ??
-				'U+' + this.char.codePointAt(0)!.toString(16).toUpperCase()
-			}]`;
-		}
-
-		span.setAttribute('aria-label', MARK_ARIA_LABELS[this.char]!);
+		span.classList.add(name);
+		span.setAttribute('aria-label', label);
+		span.textContent = ' ';
 		return span;
 	}
 

@@ -1,47 +1,8 @@
-/*
-
-This CSS file will be included with your plugin, and
-available in the app when your plugin is enabled.
-
-If your plugin does not need CSS, delete this file.
-
-*/
-
-/* .bidi-mark-widget {
-	background-color: var(--text-error);
-	color: var(--text-on-accent);
-	font-size: 0.75em;
-	font-weight: 600;
-	padding: 0 3px;
-	border-radius: 3px;
-	font-family: var(--font-monospace);
-	cursor: default;
-	user-select: none;
-} */
-
-/* .bidi-mark-widget {
-	font-size: 0.75em;
-	font-family: var(--font-monospace);
-	color: var(--text-error);
-	text-decoration: underline;
-	text-decoration-skip-ink: none;
-	text-underline-offset: 4px;
-	cursor: default;
-} */
-
-/* .bidi-mark-widget {
-	font-size: 0.75em;
-	color: var(--text-error);
-} */
-
-.bidi-mark-widget {
-	cursor: default;
-}
-
-.bidi-mark-widget--lines {
-	--size: 0.2em;
-	--color: var(--color-accent);
+.RLM,
+.LRM {
 	--deg: ;
+	--size: 0.2em;
+	--color: ;
 	background-image: linear-gradient(
 		var(--deg),
 		var(--color) 10%,
@@ -53,17 +14,14 @@ If your plugin does not need CSS, delete this file.
 		transparent 100%
 	);
 	background-size: var(--size) var(--size);
-	white-space: pre;
-}
-.bidi-mark-widget--lines.bidi-mark-widget--RLM {
-	--deg: 135deg;
-}
-.bidi-mark-widget--lines.bidi-mark-widget--LRM {
-	--deg: -135deg;
-}
 
-/* [U+200F] */
-/* .mtkcontrol {
-    color: #fff !important;
-    background: #960000 !important;
-} */
+	cursor: default;
+}
+.RLM {
+	--deg: 135deg;
+	--color: var(--color-yellow);
+}
+.LRM {
+	--deg: -135deg;
+	--color: var(--color-pink);
+}
