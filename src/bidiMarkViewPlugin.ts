@@ -9,18 +9,15 @@ import {
 	WidgetType,
 } from '@codemirror/view';
 import { RangeSetBuilder } from '@codemirror/state';
+import { MARK } from './shared';
 
-const MARKS = {
-	RLM: '\u200F',
-	LRM: '\u200E',
+const MARK_CODE_TO_NAME = {
+	[MARK.RLM]: 'RLM',
+	[MARK.LRM]: 'LRM',
 };
-const MARK_NAMES = {
-	[MARKS.RLM]: 'RLM',
-	[MARKS.LRM]: 'LRM',
-};
-const MARK_LABELS = {
-	[MARKS.RLM]: 'Right-to-Left Mark',
-	[MARKS.LRM]: 'Left-to-Right Mark',
+const MARK_CODE_TO_LABEL = {
+	[MARK.RLM]: 'Right-to-Left Mark',
+	[MARK.LRM]: 'Left-to-Right Mark',
 };
 
 class BidiMarkWidget extends WidgetType {
@@ -33,8 +30,8 @@ class BidiMarkWidget extends WidgetType {
 	}
 
 	toDOM() {
-		const name = MARK_NAMES[this.char]!;
-		const label = MARK_LABELS[this.char]!;
+		const name = MARK_CODE_TO_NAME[this.char]!;
+		const label = MARK_CODE_TO_LABEL[this.char]!;
 		const span = document.createElement('span');
 		span.classList.add(name);
 		span.setAttribute('aria-label', label);
@@ -66,7 +63,7 @@ class BidiMarkPlugin implements PluginValue {
 
 	buildDecorations(view: EditorView): DecorationSet {
 		const builder = new RangeSetBuilder<Decoration>();
-		const chars = Object.values(MARKS);
+		const chars = Object.values(MARK);
 
 		for (const { from, to } of view.visibleRanges) {
 			const text = view.state.doc.sliceString(from, to);
