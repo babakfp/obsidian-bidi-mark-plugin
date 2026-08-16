@@ -2,11 +2,15 @@ import { App, PluginSettingTab, Setting } from 'obsidian';
 import MyPlugin from './main';
 
 export interface MyPluginSettings {
-	mySetting: string;
+	rightToLeftMark: string;
+	leftToRightMark: string;
+	markType: 'lines' | 'shapes' | 'custom';
 }
 
-export const DEFAULT_SETTINGS: MyPluginSettings = {
-	mySetting: 'default',
+export const DEFAULT_SETTINGS: Partial<MyPluginSettings> = {
+	rightToLeftMark: 'default',
+	leftToRightMark: 'default',
+	markType: 'lines',
 };
 
 export class SampleSettingTab extends PluginSettingTab {
@@ -22,17 +26,37 @@ export class SampleSettingTab extends PluginSettingTab {
 
 		containerEl.empty();
 
-		new Setting(containerEl)
-			.setName('Settings #1')
-			.setDesc("It's a secret")
-			.addText((text) =>
-				text
-					.setPlaceholder('Enter your secret')
-					.setValue(this.plugin.settings.mySetting)
-					.onChange(async (value) => {
-						this.plugin.settings.mySetting = value;
-						await this.plugin.saveSettings();
-					}),
+		const markType = new Setting(containerEl)
+			.setName('Mark type')
+			.addDropdown((c) =>
+				c
+					.addOptions({
+						lines: 'Lines',
+						shapes: 'Shapes',
+						custom: 'Custom',
+					})
+					.setValue(this.plugin.settings.markType),
 			);
+
+		new Setting(containerEl).setName('Right-to-Left Mark').addText((text) =>
+			text
+				.setPlaceholder('Default: [RLM]')
+				.setValue(this.plugin.settings.rightToLeftMark)
+				.onChange(async (value) => {
+					this.plugin.settings.rightToLeftMark = value.trim();
+					await this.plugin.saveSettings();
+				})
+				.setDisabled(this.plugin.settings.markType !== 'custom'),
+		);
+
+		new Setting(containerEl).setName('Left-to-Right Mark').addText((text) =>
+			text
+				.setPlaceholder('Default: [LRM]')
+				.setValue(this.plugin.settings.leftToRightMark)
+				.onChange(async (value) => {
+					this.plugin.settings.leftToRightMark = value.trim();
+					await this.plugin.saveSettings();
+				}),
+		);
 	}
 }
