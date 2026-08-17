@@ -2,6 +2,10 @@
 
 This is a plugin for Obsidian (https://obsidian.md).
 
+Right-click context menu and commands to insert bidi marks and clearly display them in the editor.
+
+Use commands for multi-cursor tasks.
+
 This project uses TypeScript to provide type checking and documentation.
 The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
 
