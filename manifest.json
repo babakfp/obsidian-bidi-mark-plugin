@@ -1,6 +1,6 @@
 {
 	"id": "bidi-mark-plugin",
-	"name": "Bidi Mark Plugin",
+	"name": "Bidi Mark",
 	"version": "1.0.0",
 	"minAppVersion": "1.0.0",
 	"description": "Right-click context menu and commands to insert bidi marks and clearly display them in the editor.",
