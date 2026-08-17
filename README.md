@@ -1,4 +1,4 @@
-# Obsidian Obsidian Bidi Mark Plugin
+# Obsidian Bidi Mark Plugin
 
 This is a plugin for Obsidian (https://obsidian.md).
 
