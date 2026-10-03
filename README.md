@@ -6,6 +6,16 @@ Right-click context menu and commands to insert bidi marks and clearly display t
 
 Use commands for multi-cursor tasks.
 
+![](menu.png)
+
+![](table-1.png)
+
+![](table-2.png)
+
+![](table-3.png)
+
+---
+
 This project uses TypeScript to provide type checking and documentation.
 The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
 
