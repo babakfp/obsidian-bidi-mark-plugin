@@ -38,6 +38,18 @@ jobs:
                       main.js
                       ${{ steps.styles.outputs.exists == 'true' && 'styles.css' || '' }}
 
+            - name: Package plugin
+              run: |
+                  tag="${GITHUB_REF#refs/tags/}"
+                  name="${GITHUB_REPOSITORY#*/}"
+
+                  mkdir "$name"
+                  cp main.js manifest.json "$name"/
+                  [ -f styles.css ] && cp styles.css "$name"/ || true
+
+                  zip -r "$name-$tag.zip" "$name"
+                  echo "ZIP=$name-$tag.zip" >> "$GITHUB_ENV"
+
             - name: Create release
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,4 +59,4 @@ jobs:
                   gh release create "$tag" \
                     --title="$tag" \
                     --draft \
-                    main.js manifest.json ${{ steps.styles.outputs.exists == 'true' && 'styles.css' || '' }}
+                    main.js manifest.json "$ZIP" ${{ steps.styles.outputs.exists == 'true' && 'styles.css' || '' }}
