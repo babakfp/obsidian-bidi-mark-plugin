@@ -7,7 +7,7 @@ export const MARK_NAME_TO_LABEL = {
 	LRM: 'Left-to-Right Mark',
 } as const;
 
-export default class MyPlugin extends Plugin {
+export default class BidiMarkPlugin extends Plugin {
 	async onload() {
 		this.registerContextMenuItems();
 		this.registerCommands();

@@ -32,6 +32,7 @@ class BidiMarkWidget extends WidgetType {
 	toDOM() {
 		const name = MARK_CODE_TO_NAME[this.char]!;
 		const label = MARK_CODE_TO_LABEL[this.char]!;
+		// TODO: Warning:   35:16  warning  Use 'createSpan()' instead of 'document.createElement('span')'  obsidianmd/prefer-create-el
 		const span = document.createElement('span');
 		span.classList.add(name);
 		span.setAttribute('aria-label', label);
