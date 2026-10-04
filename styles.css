@@ -1,5 +1,5 @@
-.RLM,
-.LRM {
+.cm-bidi-mark-RLM,
+.cm-bidi-mark-LRM {
 	--deg: ;
 	--size: 0.2em;
 	--color: ;
@@ -17,11 +17,19 @@
 
 	cursor: default;
 }
-.RLM {
+
+.cm-bidi-mark-RLM {
 	--deg: 135deg;
 	--color: var(--color-yellow);
 }
-.LRM {
+.cm-bidi-mark-LRM {
 	--deg: -135deg;
 	--color: var(--color-pink);
+}
+
+.menu-item-RLM .menu-item-icon {
+	color: var(--color-yellow);
+}
+.menu-item-LRM .menu-item-icon {
+	color: var(--color-pink);
 }

@@ -107,6 +107,5 @@ See https://docs.obsidian.md
 
 ## Roadmap
 
-- Add mark colors to context menu items too.
 - Add mark options to search menu to search for marks easily.
 - Allow customization of mark colors using CSS variables.

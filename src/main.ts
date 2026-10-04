@@ -1,6 +1,11 @@
-import { Editor, Plugin, Menu } from 'obsidian';
+import { Editor, Plugin, Menu, MenuItem } from 'obsidian';
 import { bidiMarkViewPlugin } from './bidiMarkViewPlugin';
 import { MARK } from './shared';
+
+type MenuItemWithDom = MenuItem & {
+	// Obsidian types does not support this for some reason.
+	dom: HTMLElement;
+};
 
 export const MARK_NAME_TO_LABEL = {
 	RLM: 'Right-to-Left Mark',
@@ -25,6 +30,8 @@ export default class BidiMarkPlugin extends Plugin {
 							.onClick(() => {
 								editor.replaceSelection(MARK.RLM);
 							});
+
+						(item as MenuItemWithDom).dom.addClass('menu-item-RLM');
 					});
 
 					menu.addItem((item) => {
@@ -33,6 +40,8 @@ export default class BidiMarkPlugin extends Plugin {
 							.onClick(() => {
 								editor.replaceSelection(MARK.LRM);
 							});
+
+						(item as MenuItemWithDom).dom.addClass('menu-item-LRM');
 					});
 				},
 			),

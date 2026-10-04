@@ -33,7 +33,7 @@ class BidiMarkWidget extends WidgetType {
 		const name = MARK_CODE_TO_NAME[this.char]!;
 		const label = MARK_CODE_TO_LABEL[this.char]!;
 		return createSpan({
-			cls: `bidi-mark-${name}`,
+			cls: `cm-bidi-mark-${name}`,
 			attr: {
 				'aria-label': label,
 			},
