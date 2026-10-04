@@ -104,7 +104,3 @@ If you have multiple URLs, you can also do:
 ## API Documentation
 
 See https://docs.obsidian.md
-
-## Roadmap
-
-- Add new commands that inserts marks at the begening of the line instead of the cursor position. If there is already another mark at the begening of the line, it will be replaced.
