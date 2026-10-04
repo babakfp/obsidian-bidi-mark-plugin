@@ -1,10 +1,19 @@
-import { Editor, Plugin, Menu, MenuItem } from 'obsidian';
+import { Editor, Plugin, Menu, MenuItem, App } from 'obsidian';
 import { bidiMarkViewPlugin } from './bidiMarkViewPlugin';
 import { MARK } from './shared';
 
 type MenuItemWithDom = MenuItem & {
 	// Obsidian types does not support this for some reason.
 	dom: HTMLElement;
+};
+
+type GlobalSearchInstance = { openGlobalSearch(query: string): void };
+type AppWithInternals = App & {
+	internalPlugins: {
+		getPluginById(
+			id: string,
+		): { instance?: GlobalSearchInstance } | undefined;
+	};
 };
 
 export const MARK_NAME_TO_LABEL = {
@@ -64,6 +73,28 @@ export default class BidiMarkPlugin extends Plugin {
 			icon: 'arrow-right-from-line',
 			editorCallback: (editor: Editor) => {
 				editor.replaceSelection(MARK.LRM);
+			},
+		});
+
+		this.addCommand({
+			id: 'find-right-to-left-marks',
+			name: 'Find Right-to-Left Marks',
+			callback: () => {
+				const search = (
+					this.app as AppWithInternals
+				).internalPlugins.getPluginById('global-search')?.instance;
+				search?.openGlobalSearch(MARK.RLM);
+			},
+		});
+
+		this.addCommand({
+			id: 'find-left-to-right-marks',
+			name: 'Find Left-to-Right Marks',
+			callback: () => {
+				const search = (
+					this.app as AppWithInternals
+				).internalPlugins.getPluginById('global-search')?.instance;
+				search?.openGlobalSearch(MARK.LRM);
 			},
 		});
 	}

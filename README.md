@@ -107,5 +107,4 @@ See https://docs.obsidian.md
 
 ## Roadmap
 
-- Add mark options to search menu to search for marks easily.
 - Add new commands that inserts marks at the begening of the line instead of the cursor position. If there is already another mark at the begening of the line, it will be replaced.
