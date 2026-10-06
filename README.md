@@ -14,7 +14,29 @@ Use commands for multi-cursor tasks.
 
 ![](table-3.png)
 
----
+## Context Menu
+
+- Right-to-Left Mark
+- Left-to-Right Mark
+
+## Commands
+
+- Insert Right-to-Left Mark
+- Insert Left-to-Right Mark
+
+- Find Right-to-Left Marks
+- Find Left-to-Right Marks
+
+## Customize Colors
+
+```css
+body {
+	--color-bidi-mark-RLM: var(--color-yellow);
+	--color-bidi-mark-LRM: var(--color-pink);
+}
+```
+
+## Introduction
 
 This project uses TypeScript to provide type checking and documentation.
 The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
