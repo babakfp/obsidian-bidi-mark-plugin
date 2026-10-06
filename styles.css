@@ -1,3 +1,10 @@
+body {
+	--color-bidi-mark-RLM: var(--color-yellow);
+	--color-bidi-mark-LRM: var(--color-pink);
+}
+
+/* Editor */
+
 .cm-bidi-mark-RLM,
 .cm-bidi-mark-LRM {
 	--deg: ;
@@ -20,16 +27,18 @@
 
 .cm-bidi-mark-RLM {
 	--deg: 135deg;
-	--color: var(--color-bidi-mark-RLM, var(--color-yellow));
+	--color: var(--color-bidi-mark-RLM);
 }
 .cm-bidi-mark-LRM {
 	--deg: -135deg;
-	--color: var(--color-bidi-mark-LRM, var(--color-pink));
+	--color: var(--color-bidi-mark-LRM);
 }
 
+/* Context Menu */
+
 .menu-item-RLM .menu-item-icon {
-	color: var(--color-bidi-mark-RLM, var(--color-yellow));
+	color: var(--color-bidi-mark-RLM);
 }
 .menu-item-LRM .menu-item-icon {
-	color: var(--color-bidi-mark-LRM, var(--color-pink));
+	color: var(--color-bidi-mark-LRM);
 }
