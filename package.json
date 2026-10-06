@@ -1,6 +1,6 @@
 {
 	"name": "obsidian-bidi-mark-plugin",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"description": "Right-click context menu and commands to insert bidi marks and clearly display them in the editor.",
 	"main": "main.js",
 	"type": "module",
