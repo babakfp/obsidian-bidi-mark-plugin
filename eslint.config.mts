@@ -1,6 +1,6 @@
-import obsidianmd from 'eslint-plugin-obsidianmd';
-import globals from 'globals';
-import { globalIgnores, defineConfig } from 'eslint/config';
+import obsidianmd from 'eslint-plugin-obsidianmd'
+import { defineConfig, globalIgnores } from 'eslint/config'
+import globals from 'globals'
 
 export default defineConfig(
 	globalIgnores([
@@ -21,7 +21,12 @@ export default defineConfig(
 			},
 			parserOptions: {
 				projectService: {
-					allowDefaultProject: ['eslint.config.mts', 'manifest.json'],
+					allowDefaultProject: [
+						'eslint.config.mts',
+						'manifest.json',
+						'i18next.config.ts',
+						'prettier.config.ts',
+					],
 				},
 				tsconfigRootDir: import.meta.dirname,
 				extraFileExtensions: ['.json'],
@@ -29,4 +34,4 @@ export default defineConfig(
 		},
 	},
 	...obsidianmd.configs.recommended,
-);
+)
