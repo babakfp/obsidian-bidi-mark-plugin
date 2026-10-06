@@ -8,11 +8,11 @@ Use commands for multi-cursor tasks.
 
 ![](menu.png)
 
-![](table-1.png)
+![](table.png)
 
-![](table-2.png)
+![](table-RLM.png)
 
-![](table-3.png)
+![](table-LRM.png)
 
 ## Context Menu
 
