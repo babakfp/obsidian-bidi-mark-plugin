@@ -78,10 +78,7 @@ export default class BidiMarkPlugin extends Plugin {
 			id: 'find-right-to-left-marks',
 			name: i18next.t('Find Right-to-Left Marks'),
 			callback: () => {
-				const search = (
-					this.app as AppWithInternals
-				).internalPlugins.getPluginById('global-search')?.instance
-				search?.openGlobalSearch(MARK.RLM)
+				this.openGlobalSearch(MARK.RLM)
 			},
 		})
 
@@ -89,11 +86,15 @@ export default class BidiMarkPlugin extends Plugin {
 			id: 'find-left-to-right-marks',
 			name: i18next.t('Find Left-to-Right Marks'),
 			callback: () => {
-				const search = (
-					this.app as AppWithInternals
-				).internalPlugins.getPluginById('global-search')?.instance
-				search?.openGlobalSearch(MARK.LRM)
+				this.openGlobalSearch(MARK.LRM)
 			},
 		})
+	}
+
+	private openGlobalSearch(query: string) {
+		const search = (
+			this.app as AppWithInternals
+		).internalPlugins.getPluginById('global-search')?.instance
+		search?.openGlobalSearch(query)
 	}
 }
