@@ -4,8 +4,8 @@
 	"version": "1.1.0",
 	"minAppVersion": "1.0.0",
 	"description": "Right-click context menu and commands to insert bidi marks and clearly display them in the editor.",
-	"author": "Obsidian",
-	"authorUrl": "https://obsidian.md",
-	"fundingUrl": "https://obsidian.md/pricing",
+	"author": "Babak",
+	"authorUrl": "https://github.com/babakfp/obsidian-bidi-mark-plugin",
+	"fundingUrl": "https://github.com/babakfp/obsidian-bidi-mark-plugin",
 	"isDesktopOnly": false
 }
