@@ -21,8 +21,12 @@ Use commands for multi-cursor tasks.
 
 ## Commands
 
+Insert a mark at the cursor:
+
 - Insert Right-to-Left Mark
 - Insert Left-to-Right Mark
+
+Find all marks in the vault:
 
 - Find Right-to-Left Marks
 - Find Left-to-Right Marks
